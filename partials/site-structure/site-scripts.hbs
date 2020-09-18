@@ -1,0 +1,98 @@
+<script src="{{asset "built/app.min.js"}}"></script>
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+
+{{!-- Fitvid & kg-gallery --}}
+{{#is "post, page"}}
+    <script>
+    // Kg Gallery
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+        var container = image.closest('.kg-gallery-image');
+        var width = image.attributes.width.value;
+        var height = image.attributes.height.value;
+        var ratio = width / height;
+        container.style.flex = ratio + ' 1 0%';
+    });
+    
+    // Fit vids
+    $(document).ready(function () {
+        var $postContent = $(".it-content");
+        $postContent.fitVids();
+    });
+    </script>
+{{/is}}
+
+
+<script>
+
+    //Mobile menu
+    $(document).ready(function () {
+        // Mobile Menu Trigger
+        $('.it-burger').click(function () {
+            $('body').toggleClass('it-head-open');
+        });
+        
+        //Images Zoom
+        
+        $('.kg-image-card img').attr('data-action', 'zoom');
+        // If the image is inside a link, remove zoom
+        $('.kg-image-card a img').removeAttr('data-action');
+        
+    });
+    
+    
+    // Load more
+    var pagination_next_url = $('link[rel=next]').attr('href'),
+        $load_posts_button  = $('.it-load-posts');
+
+    $load_posts_button.click(function(e) {
+        e.preventDefault();
+
+        var request_next_link = pagination_next_url.split(/page/)[0] + 'page/' + pagination_next_page_number + '/';
+
+        $.ajax({
+        url: request_next_link,
+        beforeSend: function() {
+            $load_posts_button.text('{{t "Loading"}}');
+            $load_posts_button.addClass('loading');
+        }
+        }).done(function(data) {
+            var posts = $('.post', data);
+
+            $load_posts_button.text('{{t "Loading"}}');
+            $load_posts_button.removeClass('loading');
+
+            $('.it-postfeed').append(posts);
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazy",
+            	use_native: true
+            });
+
+            pagination_next_page_number++;
+
+            // If you are on the last pagination page, add the disabled attribute
+            if (pagination_next_page_number > pagination_available_pages_number) {
+                $load_posts_button.attr('disabled', true);
+            }
+        });
+        
+    });
+    
+     //Lazy Load
+    var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".lazy",
+    	use_native: true
+    });
+    lazyLoadInstance.update();
+    
+     //search 
+    new SearchinGhostEasy({
+        contentApiKey: content_key,
+        apiUrl: api_url
+    });
+    
+   
+</script>
+
+
+ 

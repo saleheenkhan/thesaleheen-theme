@@ -1,0 +1,34 @@
+{{!< ../default}}
+
+<div class="it-page">
+    <div class="it-container">
+        {{#if @member.paid}}
+            {{!-- Logged in, paying member: Redirect home --}}
+            <script>window.location = '{{@site.url}}';</script>
+        {{else if @member}}
+            {{!-- Logged in, not paying: Check out --}}
+            <div class="it-checkout-form it-canvas">
+                <h1 class="it-checkout-title">{{t "Choose your subscription"}}</h1>
+                <p>{{t "Unlock full access to {sitetitle} to get premium contents & updates" sitetitle=@sit.title}}</p>
+                {{> "membership/plans"}} {{!-- partials/membership/plans.hbs --}}
+                </div>
+            </div>
+        {{else}}
+            {{!-- Not logged in: Sign up --}}
+            <form class="it-auth-form" data-members-form="signup">
+                <h1 class="it-auth-title">{{t "Signup to {sitetitle}" sitetitle=@site.title}}</h1>
+                <p>{{@site.description}}</p>
+                <div class="it-auth-box">
+                    <input class="it-input" data-members-email type="email" placeholder="{{t "Type your email..."}}" required="true" autocomplete="false" aria-label="{{t "Email"}}" />
+                    <button class="it-button it-button-primary" type="submit">
+                        <span class="it-button-content">{{t "Continue"}}</span>
+                        <span class="it-button-loader">{{> "icons/loader"}}</span>
+                    </button>
+                </div>
+                <p><small>{{t "Already have an account?"}} <a href="/signin/">{{t "Sign in"}}</a></small></p>
+                <div class="message-success">{{t "Great! Check your inbox and click the link to confirm your subscription"}}</div>
+                <div class="message-error">{{t "Please enter a valid email address!"}}</div>
+            </form>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{{!< default}}
+
+<div class="it-page">
+    <div class="it-hero">
+        <div class="it-container">
+            <div class="hero-inner">
+                <img src="https://thesaleheen.com/content/images/2020/09/Sk_Headshot.png">
+                <h2><span class="small-hi">Hey</span>I am Salehin Khan</h2>
+                <p>{{@site.description}}</p>
+                 <div class="it-foot-social">
+                    <a href="https://www.linkedin.com/in/saleheenkhan/" title="{{t "Linkedin"}}" target="_blank" rel="noopener" aria-label="{{t "Linkedin"}}">{{> "icons/linkedin"}}</a>
+                    {{#if @site.twitter}}
+                    <a href="{{twitter_url @site.twitter}}" title="{{t "Twitter"}}" target="_blank" rel="noopener" aria-label="{{t "Twitter"}}">{{> "icons/twitter"}}</a>
+                    {{/if}}
+                    {{#if @site.facebook}}
+                    <a href="{{facebook_url @site.facebook}}" title="{{t "Facebook"}}" target="_blank" rel="noopener" aria-label="{{t "Facebook"}}">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    
+                    
+            </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="it-container">
+        <div class="it-postfeed it-grid-c3">
+            {{> "loop"}} {{!-- partials/loop.hbs --}}
+        </div>
+        {{pagination}} {{!-- partials/pagination.hbs --}}
+        {{> "popular-tags"}} {{!-- partials/popular-tags.hbs --}}
+    </div>
+</div>
