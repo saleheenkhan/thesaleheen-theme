@@ -55,7 +55,9 @@
     border-bottom: 1px solid var(--color-border);
     padding: 0 0 1em;
 }
-
+.it-card:last-child {
+    border-bottom: 0;
+}
 .it-card-link {
     display: flex;
     flex-direction: column;
