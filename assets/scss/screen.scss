@@ -94,7 +94,47 @@ html,
 
 /* Index
 /* ---------------------------------------------------------- */
-
+.it-hero {
+    margin-bottom: 3em;
+}
+.hero-inner {
+    display: block;
+    text-align: center;
+    padding: 4em;
+    max-width: 650px;
+        margin: 0 auto;
+}
+.hero-inner img {
+    width: 170px;
+    border-radius: 50%;
+    height: 170px;
+    margin: 0 auto 1em;
+}
+.hero-inner h2 span {
+    display: block;
+    font-size: 18px;
+    line-height: 1.2;
+}
+.hero-inner p {
+    margin-top: 1em;
+}
+.hero-inner .it-foot-social {
+    margin-top: 1em;
+}
+.hero-inner .it-foot-social a {
+    margin-left: .8rem;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+}
+.hero-inner .it-foot-social a svg {
+    height: 15px;
+    top: 6px;
+    position: relative;
+}
 
 .it-pagination {
     text-align: center;
