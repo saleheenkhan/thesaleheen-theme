@@ -51,7 +51,9 @@
 
 /* Regular cards */
 .it-card {
-    margin: 0;
+    margin: 0 0 1em;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 0 1em;
 }
 
 .it-card-link {
