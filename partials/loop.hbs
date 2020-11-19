@@ -35,11 +35,10 @@ Re-usable card for linking to posts
 						{{/has}}
 					<time datetime="{{date format="YYYY-MM-DD"}}">{{date timeago="true"}}</time>
 				</span> 
-			
 				{{#foreach tags limit="1"}}
-						<span class="it-post-card-tags">
-							<a href="{{url}}" title="{{title}}"><span class="it-tag-hash">&#35;</span>{{name}}</a>
-						</span>
+					<span class="it-post-card-tags">
+						<a href="{{url}}" title="{{title}}"><span class="it-tag-hash">&#35;</span>{{name}}</a>
+					</span>
 				{{/foreach}}
 			</div>
         </div>
