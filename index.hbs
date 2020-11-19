@@ -7,10 +7,19 @@
                 <img src="https://thesaleheen.com/content/images/2020/09/Sk_Headshot.png" alt="@site.title">
                 <h2><span class="small-hi">Hey</span>I am Salehin Khan</h2>
                 <p>{{@site.description}}</p>
-                
-                <div class="it-subscribe-section">
+                 <div class="it-foot-social">
+                    <a href="https://www.linkedin.com/in/saleheenkhan/" title="{{t "Linkedin"}}" target="_blank" rel="noopener" aria-label="{{t "Linkedin"}}">{{> "icons/linkedin"}}</a>
+                    {{#if @site.twitter}}
+                    <a href="{{twitter_url @site.twitter}}" title="{{t "Twitter"}}" target="_blank" rel="noopener" aria-label="{{t "Twitter"}}">{{> "icons/twitter"}}</a>
+                    {{/if}}
+                    {{#if @site.facebook}}
+                    <a href="{{facebook_url @site.facebook}}" title="{{t "Facebook"}}" target="_blank" rel="noopener" aria-label="{{t "Facebook"}}">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    
+                    
+                </div>
+                      <div class="it-subscribe-section">
                 {{#if @labs.members}}
-                	<h4>{{t "Subscribe"}}</h4>
                 	<p>{{t "Stay up to date! Get all the latest & greatest posts delivered straight to your inbox"}}</p>
                 	<div class="it-subscribe-content">
                 		<form data-members-form="subscribe" class="subscribe-form">
@@ -23,18 +32,6 @@
                 		</form>
                 	</div>
                 {{/if}}
-            </div>
-            
-                 <div class="it-foot-social">
-                    <a href="https://www.linkedin.com/in/saleheenkhan/" title="{{t "Linkedin"}}" target="_blank" rel="noopener" aria-label="{{t "Linkedin"}}">{{> "icons/linkedin"}}</a>
-                    {{#if @site.twitter}}
-                    <a href="{{twitter_url @site.twitter}}" title="{{t "Twitter"}}" target="_blank" rel="noopener" aria-label="{{t "Twitter"}}">{{> "icons/twitter"}}</a>
-                    {{/if}}
-                    {{#if @site.facebook}}
-                    <a href="{{facebook_url @site.facebook}}" title="{{t "Facebook"}}" target="_blank" rel="noopener" aria-label="{{t "Facebook"}}">{{> "icons/facebook"}}</a>
-                    {{/if}}
-                    
-                    
             </div>
 
             </div>
